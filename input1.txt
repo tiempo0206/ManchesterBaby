@@ -1,0 +1,34 @@
+; Test Extended Instruction Set
+; Test arithmetic operations and bitwise operations
+          VAR 0       ; Initialize address 0
+START:    LDN NUM1    ; Load negative value of first number
+          ADD NUM1    ; Add original value to get 0
+          ADD NUM1    ; Add again to get 10
+          MUL NUM2    ; Multiply by second number (10 * 3 = 30)
+          DIV NUM1    ; Divide by NUM1 (30 / 10 = 3)
+          STO TEMP    ; Store result to TEMP
+          
+          ; Bitwise operation test
+          LDN NUM1    ; Load negative value of NUM1 (-10)
+          ADD NUM1    ; Add original value to get 0
+          ADD NUM1    ; Add again to get 10
+          AND NUM2    ; Bitwise AND (10 & 3 = 2)
+          OR NUM2     ; Bitwise OR (2 | 3 = 3)
+          XOR NUM1    ; Bitwise XOR (3 ^ 10 = 9)
+          STO TEMP2   ; Store bitwise result
+          
+          ; Shift operation test
+          LDN TEMP2   ; Load negative value of TEMP2 (-9)
+          ADD TEMP2   ; Add original value to get 0
+          ADD TEMP2   ; Add again to get 9
+          SHL SHIFT   ; Shift left 2 bits (9 << 2 = 36)
+          SHR SHIFT   ; Shift right 2 bits (36 >> 2 = 9)
+          STO RESULT  ; Store final result
+
+END:      STP        ; Stop program
+NUM1:     VAR 10     ; First operand: 10
+NUM2:     VAR 3      ; Second operand: 3
+SHIFT:    VAR 2      ; Shift value: 2
+TEMP:     VAR 0      ; Temporary storage 1
+TEMP2:    VAR 0      ; Temporary storage 2
+RESULT:   VAR 0      ; Final result
